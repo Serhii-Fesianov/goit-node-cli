@@ -1,7 +1,9 @@
 const path = require("path");
-const contactsPath = path.join(__dirname, "./db/contacts.json");
 const { nanoid } = require("nanoid");
 const fs = require("fs/promises");
+
+const startPath = path.join(__dirname, "./db/contacts.json");
+const contactsPath = startPath.replace(/\//g, ",");
 
 const listContacts = async () => {
   const data = await fs.readFile(contactsPath);
